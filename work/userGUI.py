@@ -134,14 +134,14 @@ class roomWin():
         b1 = Button(tF, text='<<', command=self.decre)
         b2 = Button(tF, text='>>', command=self.incre)
 
-        b1.grid(row=1,column=0,rowspan=2)
+        b1.grid(row=1,column=0)
         b2.grid(row=1,column=1)
 
         bf3 = Frame(self.cwin,pady=15)
         self.button_submit=Button(bf3, text ="BUY", width=10)
         self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
 
-        self.button_submit.pack(side=LEFT)
+        self.button_submit.pack(side=LEFT,padx=10)
         self.button_exit.pack(side=RIGHT)
         
         bf3.grid(row=2,column=0)
@@ -189,25 +189,64 @@ class myinfoWin():
         filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\user2.png")
        
         background_label = Label(self.cwin, image=filename)
-        background_label.place(x=0, y=0)
+        background_label.place(x=0, y=-100)
 
         background_label.image = filename # reference to the image
         background_label.grid(row=0,column=0)
 
-        bf1 = Frame(self.cwin,pady=15)
-        self.button_submit=Button(bf1, text ="SEARCH", width=10)
-        self.button_exit=Button(bf1, text="EXIT", width=10, command=self.cwin.destroy)
+        bf1 = Frame(self.cwin,pady=2)
+        self.l1 = Label(bf1, text="First Name: ")
+        self.e1 = Entry(bf1)
+
+        self.l1.pack(side=LEFT)
+        self.e1.pack(side=RIGHT)
+
+
+        bf2 = Frame(self.cwin,pady=2)
+        self.l2 = Label(bf2, text="Last Name: ")
+        self.e2 = Entry(bf2)
+
+        self.l2.pack(side=LEFT)
+        self.e2.pack(side=RIGHT)
+
+        bf3 = Frame(self.cwin,pady=2)
+        self.l3 = Label(bf3, text="            Age: ")
+        self.e3 = Entry(bf3)
+
+        self.l3.pack(side=LEFT)
+        self.e3.pack(side=RIGHT)
+
+        bf4 = Frame(self.cwin,pady=2)
+        self.l4 = Label(bf4, text="        Status: ")
+        self.e4 = Entry(bf4)
+
+        self.l4.pack(side=LEFT)
+        self.e4.pack(side=RIGHT)
+
+        bf5 = Frame(self.cwin,pady=10)
+        self.searchBut = Button(bf5, text="SEARCH", width=10)
+        self.exitBut = Button(bf5, text="EXIT", command=self.cwin.destroy, width=10)
+
+        self.searchBut.pack(side=LEFT,padx=10)
+        self.exitBut.pack(side=RIGHT)
+
+
+        bf1.grid(row=2,column=0)
+        bf2.grid(row=3,column=0)
+        bf3.grid(row=4,column=0)
+        bf4.grid(row=5,column=0)
+        bf5.grid(row=6,column=0)
 
 
 
-        bf1.grid(row=0,column=0)
         self.cwin.title(title)
         self.cwin.geometry('450x450')
 
-    def getInfo(self):
+    #def getInfo(self):
+
         
 
 
 
-#UserWindow()
+UserWindow()
 

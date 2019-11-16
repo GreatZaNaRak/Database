@@ -38,15 +38,15 @@ class UserWindow():
         r2 = Frame(bdFrame, pady=10)
 
         self.checkInfo = Button(r2, text="MY INFO", width=15, command=self.popMyinfo)
-        self.checkBill = Button(r2, text="BILL INFO", width=15)
+        self.checkBill = Button(r2, text="BILL INFO", width=15, command=self.popBill)
 
         self.checkInfo.pack(side=LEFT, padx=10)
         self.checkBill.pack(side=RIGHT)
 
         r3 = Frame(bdFrame, pady=3)
 
-        self.find = Button(r3, text="SEARCH ROOM", width=15)
-        self.exBut = Button(r3, text="PAYMENT", width=15)
+        self.find = Button(r3, text="SEARCH PLAYS", width=15, command=self.popSearchPlays)
+        self.exBut = Button(r3, text="PAYMENT", width=15, command=self.popPayment)
 
         self.find.pack(side=LEFT, padx=10)
         self.exBut.pack(side=RIGHT)
@@ -72,6 +72,15 @@ class UserWindow():
     
     def popMyinfo(self):
         m = myinfoWin("my information")
+    
+    def popSearchPlays(self):
+        p = searchPlaysWin("search plays")
+
+    def popBill(self):
+        b = billWin("billing")
+    
+    def popPayment(self):
+        p2 = paymentWin("payment")
 
 class ticketWin():
     def __init__(self, title):
@@ -134,8 +143,8 @@ class roomWin():
         b1 = Button(tF, text='<<', command=self.decre)
         b2 = Button(tF, text='>>', command=self.incre)
 
-        b1.grid(row=1,column=0)
-        b2.grid(row=1,column=1)
+        b1.pack(side=LEFT,padx=10)
+        b2.pack(side=RIGHT)
 
         bf3 = Frame(self.cwin,pady=15)
         self.button_submit=Button(bf3, text ="BUY", width=10)
@@ -224,7 +233,7 @@ class myinfoWin():
         self.e4.pack(side=RIGHT)
 
         bf5 = Frame(self.cwin,pady=10)
-        self.searchBut = Button(bf5, text="SEARCH", width=10)
+        self.searchBut = Button(bf5, text="SEARCH", width=10, command=self.getInfo)
         self.exitBut = Button(bf5, text="EXIT", command=self.cwin.destroy, width=10)
 
         self.searchBut.pack(side=LEFT,padx=10)
@@ -242,11 +251,128 @@ class myinfoWin():
         self.cwin.title(title)
         self.cwin.geometry('450x450')
 
-    #def getInfo(self):
+    def getInfo(self):
+        self.e1.insert(0, 'todo')
+        self.e2.insert(0, 'todo')
+        self.e3.insert(0, 'todo')
+        self.e4.insert(0, 'todo')
 
+class billWin():
+    def __init__(self, title):
+
+        self.cwin = Toplevel()
+
+        self.cwin.title(title)
+        self.cwin.geometry('450x450')
+
+class searchPlaysWin():
+    def __init__(self, title):
+
+        self.cwin = Toplevel()
+        self.i = 1
+
+        C = Canvas(self.cwin, bg="blue", height=50, width=50)
+
+        filename1 = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\p1.png")
+
+        #self.file = str(self.f)+str(self.i)
+       
+        background_label = Label(self.cwin, image=filename1)
+        background_label.place(x=0, y=-100)
+
+        background_label.image = filename1 # reference to the image
+        background_label.grid(row=0,column=0)
+
+        tF = Frame(self.cwin,pady=15)
+
+
+        b1 = Button(tF, text='<<', command=self.decre)
+        b2 = Button(tF, text='>>', command=self.incre)
+
+        b1.pack(side=LEFT,padx=10)
+        b2.pack(side=RIGHT)
+
+        bf1 = Frame(self.cwin,pady=5)
+        self.l1 = Label(bf1, text="       Plays ID: ")
+        self.e1 = Entry(bf1) 
+
+        self.l1.pack(side=LEFT)
+        self.e1.pack(side=RIGHT)
+
+        bf2 = Frame(self.cwin,pady=5)
+        self.l2 = Label(bf2, text="Plays Name: ")
+        self.e2 = Entry(bf2)
+
+        self.l2.pack(side=LEFT)
+        self.e2.pack(side=RIGHT)
+
+
+
+        bf3 = Frame(self.cwin,pady=5)
+        self.button_submit=Button(bf3, text ="SEARCH", width=10, command=self.search)
+        self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
+
+        self.button_submit.pack(side=LEFT,padx=10)
+        self.button_exit.pack(side=RIGHT)
         
+        bf1.grid(row=2,column=0)
+        bf2.grid(row=3,column=0)
+        bf3.grid(row=4,column=0)
+        tF.grid(row=1,column=0,padx=50)
+
+
+        self.cwin.title(title)
+        self.cwin.geometry('450x450')
+
+    def incre(self):
+
+        self.i = (self.i + 1) % 4
+
+        s = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\p" + str(self.i+1) +".png"
+
+        filename1 = PhotoImage(file = s)
+
+        background_label = Label(self.cwin, image=filename1)
+        background_label.place(x=0, y=-100)
+
+        background_label.image = filename1 # reference to the image
+        background_label.grid(row=0,column=0)
+
+    def decre(self):
+
+        self.i = (self.i - 1) % 4
+
+        s = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\p" + str(self.i+1) +".png" 
+
+        filename1 = PhotoImage(file = s)
+
+        background_label = Label(self.cwin, image=filename1)
+        background_label.place(x=0, y=-100)
+
+        background_label.image = filename1 # reference to the image
+        background_label.grid(row=0,column=0)
+    
+    def search(self):
+        self.e1.delete(0, END)
+        self.e1.insert(0, 'todo')
+        self.e2.delete(0, END)
+        self.e2.insert(0, 'todo')
+
+class paymentWin():
+    def __init__(self, title):
+
+        self.cwin = Toplevel()
+
+
+        b = Button(self.cwin, text="PAY!")
+        b.pack()
 
 
 
-UserWindow()
+        self.cwin.title(title)
+        self.cwin.geometry('450x450')
+    
+    def getPaid(self):
+        print('yay')
+
 

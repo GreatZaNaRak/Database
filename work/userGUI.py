@@ -37,7 +37,7 @@ class UserWindow():
 
         r2 = Frame(bdFrame, pady=10)
 
-        self.checkInfo = Button(r2, text="MY INFO", width=15)
+        self.checkInfo = Button(r2, text="MY INFO", width=15, command=self.popMyinfo)
         self.checkBill = Button(r2, text="BILL INFO", width=15)
 
         self.checkInfo.pack(side=LEFT, padx=10)
@@ -69,6 +69,9 @@ class UserWindow():
     
     def popRoom(self):
         r = roomWin("buying room")
+    
+    def popMyinfo(self):
+        m = myinfoWin("my information")
 
 class ticketWin():
     def __init__(self, title):
@@ -175,6 +178,34 @@ class roomWin():
 
         background_label.image = filename1 # reference to the image
         background_label.grid(row=0,column=0)
+
+class myinfoWin():
+    def __init__(self, title):
+
+        self.cwin = Toplevel()
+
+
+        C = Canvas(self.cwin, bg="blue", height=50, width=50)
+        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\user2.png")
+       
+        background_label = Label(self.cwin, image=filename)
+        background_label.place(x=0, y=0)
+
+        background_label.image = filename # reference to the image
+        background_label.grid(row=0,column=0)
+
+        bf1 = Frame(self.cwin,pady=15)
+        self.button_submit=Button(bf1, text ="SEARCH", width=10)
+        self.button_exit=Button(bf1, text="EXIT", width=10, command=self.cwin.destroy)
+
+
+
+        bf1.grid(row=0,column=0)
+        self.cwin.title(title)
+        self.cwin.geometry('450x450')
+
+    def getInfo(self):
+        
 
 
 

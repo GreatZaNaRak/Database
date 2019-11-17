@@ -1,5 +1,5 @@
 from tkinter import *
-#from database import *
+from bill import *
 from calender import *
 import time
 from PIL import Image, ImageTk
@@ -77,10 +77,10 @@ class UserWindow():
         p = searchPlaysWin("search plays")
 
     def popBill(self):
-        b = billWin("billing")
+        b = billCheck()
     
     def popPayment(self):
-        p2 = paymentWin("payment")
+        p2 = billPay()
 
 class ticketWin():
     def __init__(self, title):
@@ -105,7 +105,7 @@ class ticketWin():
         self.button_submit=Button(bf3, text ="BUY", width=10, command=self.tick)
         self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
 
-        self.button_submit.pack(side=LEFT)
+        self.button_submit.pack(side=LEFT, padx=10)
         self.button_exit.pack(side=RIGHT)
         
         tF.grid(row=1)
@@ -219,14 +219,14 @@ class myinfoWin():
         self.e2.pack(side=RIGHT)
 
         bf3 = Frame(self.cwin,pady=2)
-        self.l3 = Label(bf3, text="            Age: ")
+        self.l3 = Label(bf3, text="       Phone: ")
         self.e3 = Entry(bf3)
 
         self.l3.pack(side=LEFT)
         self.e3.pack(side=RIGHT)
 
         bf4 = Frame(self.cwin,pady=2)
-        self.l4 = Label(bf4, text="        Status: ")
+        self.l4 = Label(bf4, text="         Email: ")
         self.e4 = Entry(bf4)
 
         self.l4.pack(side=LEFT)
@@ -257,13 +257,6 @@ class myinfoWin():
         self.e3.insert(0, 'todo')
         self.e4.insert(0, 'todo')
 
-class billWin():
-    def __init__(self, title):
-
-        self.cwin = Toplevel()
-
-        self.cwin.title(title)
-        self.cwin.geometry('450x450')
 
 class searchPlaysWin():
     def __init__(self, title):
@@ -358,21 +351,6 @@ class searchPlaysWin():
         self.e2.delete(0, END)
         self.e2.insert(0, 'todo')
 
-class paymentWin():
-    def __init__(self, title):
-
-        self.cwin = Toplevel()
 
 
-        b = Button(self.cwin, text="PAY!")
-        b.pack()
-
-
-
-        self.cwin.title(title)
-        self.cwin.geometry('450x450')
-    
-    def getPaid(self):
-        print('yay')
-
-
+UserWindow()

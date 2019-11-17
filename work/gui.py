@@ -3,6 +3,8 @@ from emp import *
 from play import *
 from update import *
 from product import *
+from user import *
+from income import *
 from PIL import Image, ImageTk
 
 class Window():
@@ -233,7 +235,6 @@ class updateWin():
 
         
 
-
 class queryWin():
     def __init__(self, title):
         
@@ -256,7 +257,7 @@ class queryWin():
 
         bf1 = Frame(self.cwin,pady=5)
         self.empBut = Button(bf1, text="EMPLOYEE", width=15,command=self.empQ)
-        self.userBut = Button(bf1, text="USER", width=15)
+        self.userBut = Button(bf1, text="USER", width=15, command=self.uQ)
 
         self.empBut.pack(side=LEFT,padx=10)
         self.userBut.pack(side=RIGHT)
@@ -269,8 +270,8 @@ class queryWin():
         self.billBut.pack(side=RIGHT)
 
         bf3 = Frame(self.cwin,pady=5)
-        self.roomBut = Button(bf3, text ="ROOMER", width=15)
-        self.inBut = Button(bf3, text="INCOME", width=15)
+        self.roomBut = Button(bf3, text ="ROOMER", width=15, command=self.rQ)
+        self.inBut = Button(bf3, text="INCOME", width=15, command=self.income)
 
         self.roomBut.pack(side=LEFT,padx=10)
         self.inBut.pack(side=RIGHT)
@@ -298,7 +299,15 @@ class queryWin():
 
     def prQ(self):
         prQ()
-        
+    
+    def uQ(self):
+        user()
+    
+    def rQ(self):
+        roomer()
+    
+    def income(self):
+        income()
 
 
 

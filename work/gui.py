@@ -1,5 +1,6 @@
 from tkinter import *
-#from database import *
+from emp import *
+from play import *
 from PIL import Image, ImageTk
 
 class Window():
@@ -94,61 +95,37 @@ class insertWin():
 
         background_label.grid(row=0,column=0)
 
-        tF = Frame(self.cwin)
-        l = Label(tF, text="Inserting Data...")
+        tF = Frame(self.cwin,pady=20)
+        l = Label(tF, text="Select thing you want to insert...")
         l.pack()
 
-        bf1 = Frame(self.cwin)
-        self.label_id=Label(bf1, text="UserID = ")
-        self.entry_id=Entry(bf1)
+        bf1 = Frame(self.cwin, pady=5)
+        self.employBut = Button(bf1, text="EMPLOYEE", width=15, command=self.empIn)
+        self.playBut = Button(bf1, text="PLAYS", width=15, command=self.pIn)
 
-        self.label_id.pack(side=LEFT)
-        self.entry_id.pack(side=RIGHT)
+        self.employBut.pack(side=LEFT, padx=10)
+        self.playBut.pack(side=RIGHT)
 
-        bf2 = Frame(self.cwin)
-        self.label_name=Label(bf2, text="Values = ")
-        self.entry_name=Entry(bf2)
+        bf2 = Frame(self.cwin, pady=5)
+        self.productBut = Button(bf2, text="PRODUCT", width=15)
+        self.exitBut = Button(bf2, text="EXIT", width=15, command=self.cwin.destroy)
 
-        self.label_name.pack(side=LEFT)
-        self.entry_name.pack(side=RIGHT)
+        self.productBut.pack(side=LEFT, padx=10)
+        self.exitBut.pack(side=RIGHT)
 
-        bf3 = Frame(self.cwin)
-        self.button_submit=Button(bf3, text ="INSERT", width=10, command=self.searchCustomer)
-        self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
-
-        self.button_submit.pack(side=LEFT)
-        self.button_exit.pack(side=RIGHT)
-        
         tF.grid(row=1)
-        bf1.grid(row=2,pady=10,padx=5)
-        bf2.grid(row=3,pady=10)
-        bf3.grid(row=4,pady=10,padx=10)
- 
+        bf1.grid(row=2)
+        bf2.grid(row=3)
        
 
         self.cwin.title(title)
         self.cwin.geometry('450x450')
 
-        
-
-    def searchCustomer(self):
-      
-        self.cwin.title("Searched")
-        dataentry = [self.entry_id.get(), self.entry_name.get()]
-        #aCustomer = Customer(dataentry)
-        
-        #retmsg = aCustomer.search()
-
-        #if retmsg[0] == "0" :
-        #    self.entry_id.delete(0, END)
-        #    self.entry_id.insert(0, aCustomer.getInfo()[0])
-        #    self.entry_name.delete(0, END)
-        #    self.entry_name.insert(0, aCustomer.getInfo()[1])
-            
-        #else :
-        #    self.entry_name.delete(0, END)
-        #    self.entry_name.insert(0, "?????")
-        #self.label_status.config(text=retmsg[1])    
+    def empIn(self):
+        empIn()
+    
+    def pIn(self):
+        pIn()
 
 class deleteWin():
     def __init__(self, title):
@@ -166,42 +143,37 @@ class deleteWin():
 
         background_label.grid(row=0,column=0)
 
-        tF = Frame(self.cwin)
-        l = Label(tF, text="Deleting Data...")
+        tF = Frame(self.cwin,pady=20)
+        l = Label(tF, text="Select thing you want to delete...")
         l.pack()
 
-        bf1 = Frame(self.cwin)
-        self.label_id=Label(bf1, text="UserID = ")
-        self.entry_id=Entry(bf1)
+        bf1 = Frame(self.cwin, pady=5)
+        self.employBut = Button(bf1, text="EMPLOYEE", width=15,command=self.empOut)
+        self.playBut = Button(bf1, text="PLAYS", width=15, command=self.pOut)
 
-        self.label_id.pack(side=LEFT)
-        self.entry_id.pack(side=RIGHT)
+        self.employBut.pack(side=LEFT, padx=10)
+        self.playBut.pack(side=RIGHT)
 
-        bf2 = Frame(self.cwin)
-        self.label_name=Label(bf2, text="Name = ")
-        self.entry_name=Entry(bf2)
+        bf2 = Frame(self.cwin, pady=5)
+        self.productBut = Button(bf2, text="PRODUCT", width=15)
+        self.exitBut = Button(bf2, text="EXIT", width=15, command=self.cwin.destroy)
 
-        self.label_name.pack(side=LEFT)
-        self.entry_name.pack(side=RIGHT)
+        self.productBut.pack(side=LEFT, padx=10)
+        self.exitBut.pack(side=RIGHT)
 
-        bf3 = Frame(self.cwin)
-        self.button_submit=Button(bf3, text ="DELETE", width=10)
-        self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
-
-        self.button_submit.pack(side=LEFT)
-        self.button_exit.pack(side=RIGHT)
-        
         tF.grid(row=1)
-        bf1.grid(row=2,pady=10,padx=5)
-        bf2.grid(row=3,pady=10)
-        bf3.grid(row=4,pady=10,padx=10)
- 
+        bf1.grid(row=2)
+        bf2.grid(row=3)
        
 
         self.cwin.title(title)
         self.cwin.geometry('450x450')
 
-        
+    def empOut(self):
+        empOut() 
+    
+    def pOut(self):
+        pOut()
 
     
 
@@ -221,37 +193,26 @@ class updateWin():
 
         background_label.grid(row=0,column=0)
 
-        tF = Frame(self.cwin)
-        l = Label(tF, text="Updating Data...")
+        tF = Frame(self.cwin, pady=20)
+        l = Label(tF, text="Select thing you want to update...")
         l.pack()
 
-        bf1 = Frame(self.cwin)
-        self.label_id=Label(bf1, text="UserID = ")
-        self.entry_id=Entry(bf1)
+        bf1 = Frame(self.cwin, pady=5)
+        self.tickPriceBut = Button(bf1, text="TICKET PRICE", width=15)
+        self.playPriceBut = Button(bf1, text="PLAYS PRICE", width=15)
 
-        self.label_id.pack(side=LEFT)
-        self.entry_id.pack(side=RIGHT)
+        self.tickPriceBut.pack(side=LEFT, padx=10)
+        self.playPriceBut.pack(side=RIGHT)
 
-        bf2 = Frame(self.cwin)
-        self.label_name=Label(bf2, text="Name = ")
-        self.entry_name=Entry(bf2)
-
-        self.label_name.pack(side=LEFT)
-        self.entry_name.pack(side=RIGHT)
-
-        bf3 = Frame(self.cwin)
-        self.button_submit=Button(bf3, text ="UPDATE", width=10)
-        self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
-
-        self.button_submit.pack(side=LEFT)
-        self.button_exit.pack(side=RIGHT)
+        bf2 = Frame(self.cwin, pady=5)
+        self.exBut = Button(bf2, text="EXIT", width=15, command=self.cwin.destroy)
+        
+        self.exBut.pack()
         
         tF.grid(row=1)
-        bf1.grid(row=2,pady=10,padx=5)
-        bf2.grid(row=3,pady=10)
-        bf3.grid(row=4,pady=10,padx=10)
- 
-       
+        bf1.grid(row=2)
+        bf2.grid(row=3)
+        
 
         self.cwin.title(title)
         self.cwin.geometry('450x450')
@@ -276,43 +237,54 @@ class queryWin():
         background_label.grid(row=0,column=0)
 
         tF = Frame(self.cwin)
-        l = Label(tF, text="Quering Data...")
+        l = Label(tF, text="Select thing you want to query..")
         l.pack()
 
-        bf1 = Frame(self.cwin)
-        self.label_id=Label(bf1, text="Command = ")
-        self.entry_id=Entry(bf1)
+        bf1 = Frame(self.cwin,pady=5)
+        self.empBut = Button(bf1, text="EMPLOYEE", width=15,command=self.empQ)
+        self.userBut = Button(bf1, text="USER", width=15)
 
-        self.label_id.pack(side=LEFT)
-        self.entry_id.pack(side=RIGHT)
+        self.empBut.pack(side=LEFT,padx=10)
+        self.userBut.pack(side=RIGHT)
 
-        bf2 = Frame(self.cwin)
-        self.label_name=Label(bf2, text="Result = ")
-        self.entry_name=Entry(bf2)
+        bf2 = Frame(self.cwin,pady=5)
+        self.playBut = Button(bf2, text="PLAYS", width=15, command=self.pQ)
+        self.billBut = Button(bf2, text="BILL", width=15)
 
-        self.label_name.pack(side=LEFT)
-        self.entry_name.pack(side=RIGHT)
+        self.playBut.pack(side=LEFT,padx=10)
+        self.billBut.pack(side=RIGHT)
 
-        bf3 = Frame(self.cwin)
-        self.button_submit=Button(bf3, text ="ASK", width=10)
-        self.button_exit=Button(bf3, text="EXIT", width=10, command=self.cwin.destroy)
+        bf3 = Frame(self.cwin,pady=5)
+        self.roomBut = Button(bf3, text ="ROOMER", width=15)
+        self.inBut = Button(bf3, text="INCOME", width=15, command=self.cwin.destroy)
 
-        self.button_submit.pack(side=LEFT)
-        self.button_exit.pack(side=RIGHT)
+        self.roomBut.pack(side=LEFT,padx=10)
+        self.inBut.pack(side=RIGHT)
+
+        bf4 = Frame(self.cwin,pady=5)
+        self.ex = Button(bf4, text ="EXIT", width=15, command=self.cwin.destroy)
+        self.ex.pack()
         
         tF.grid(row=1)
-        bf1.grid(row=2,pady=10,padx=5)
-        bf2.grid(row=3,pady=10)
-        bf3.grid(row=4,pady=10,padx=10)
+        bf1.grid(row=2)
+        bf2.grid(row=3)
+        bf3.grid(row=4)
+        bf4.grid(row=5)
  
        
 
         self.cwin.title(title)
         self.cwin.geometry('450x450')
+    
+    def empQ(self):
+        empQue()
+    
+    def pQ(self):
+        pQue()
 
         
 
 
 
 
-#Window()
+Window()

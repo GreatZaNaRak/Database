@@ -28,7 +28,7 @@ class CustomerDB():
             connection = mysql.connector.connect(host='localhost',
                                                  database=databasename,
                                                  user='root',
-                                                 password='Great05092541')
+                                                 password='')
        
             objdata = (wdata[0], wdata[1])
             
@@ -61,7 +61,7 @@ class CustomerDB():
                 host='localhost',
                 database=databasename,
                 user='root',
-                password='Great05092541'
+                password=''
             )
 
             objData = (key,)

@@ -1,6 +1,8 @@
 from tkinter import *
 from emp import *
 from play import *
+from update import *
+from product import *
 from PIL import Image, ImageTk
 
 class Window():
@@ -107,7 +109,7 @@ class insertWin():
         self.playBut.pack(side=RIGHT)
 
         bf2 = Frame(self.cwin, pady=5)
-        self.productBut = Button(bf2, text="PRODUCT", width=15)
+        self.productBut = Button(bf2, text="PRODUCT", width=15, command=self.prIn)
         self.exitBut = Button(bf2, text="EXIT", width=15, command=self.cwin.destroy)
 
         self.productBut.pack(side=LEFT, padx=10)
@@ -126,6 +128,9 @@ class insertWin():
     
     def pIn(self):
         pIn()
+    
+    def prIn(self):
+        prIn()
 
 class deleteWin():
     def __init__(self, title):
@@ -155,7 +160,7 @@ class deleteWin():
         self.playBut.pack(side=RIGHT)
 
         bf2 = Frame(self.cwin, pady=5)
-        self.productBut = Button(bf2, text="PRODUCT", width=15)
+        self.productBut = Button(bf2, text="PRODUCT", width=15, command=self.prOut)
         self.exitBut = Button(bf2, text="EXIT", width=15, command=self.cwin.destroy)
 
         self.productBut.pack(side=LEFT, padx=10)
@@ -174,6 +179,9 @@ class deleteWin():
     
     def pOut(self):
         pOut()
+    
+    def prOut(self):
+        prOut()
 
     
 
@@ -198,8 +206,8 @@ class updateWin():
         l.pack()
 
         bf1 = Frame(self.cwin, pady=5)
-        self.tickPriceBut = Button(bf1, text="TICKET PRICE", width=15)
-        self.playPriceBut = Button(bf1, text="PLAYS PRICE", width=15)
+        self.tickPriceBut = Button(bf1, text="TICKET PRICE", width=15, command=self.upTic)
+        self.playPriceBut = Button(bf1, text="PLAYS PRICE", width=15, command=self.upPlay)
 
         self.tickPriceBut.pack(side=LEFT, padx=10)
         self.playPriceBut.pack(side=RIGHT)
@@ -216,6 +224,12 @@ class updateWin():
 
         self.cwin.title(title)
         self.cwin.geometry('450x450')
+    
+    def upTic(self):
+        upTicket()
+    
+    def upPlay(self):
+        upPlay()
 
         
 
@@ -249,14 +263,14 @@ class queryWin():
 
         bf2 = Frame(self.cwin,pady=5)
         self.playBut = Button(bf2, text="PLAYS", width=15, command=self.pQ)
-        self.billBut = Button(bf2, text="BILL", width=15)
+        self.billBut = Button(bf2, text="PRODUCT", width=15, command=self.prQ)
 
         self.playBut.pack(side=LEFT,padx=10)
         self.billBut.pack(side=RIGHT)
 
         bf3 = Frame(self.cwin,pady=5)
         self.roomBut = Button(bf3, text ="ROOMER", width=15)
-        self.inBut = Button(bf3, text="INCOME", width=15, command=self.cwin.destroy)
+        self.inBut = Button(bf3, text="INCOME", width=15)
 
         self.roomBut.pack(side=LEFT,padx=10)
         self.inBut.pack(side=RIGHT)
@@ -282,6 +296,8 @@ class queryWin():
     def pQ(self):
         pQue()
 
+    def prQ(self):
+        prQ()
         
 
 

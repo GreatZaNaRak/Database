@@ -31,10 +31,20 @@ class prIn():
         self.empName = Label(bdF, text="Product Name: ")
         self.empNameEn = Entry(bdF)
 
+        self.empAge = Label(bdF, text="Product Price: ")
+        self.empAgeEn = Entry(bdF)
+
+        self.empSta = Label(bdF, text="Product Status: ")
+        self.empStaEn = Entry(bdF)
+
         self.empID.grid(row=0,column=0)
-        self.empEn.grid(row=0,column=1, pady=10)
+        self.empEn.grid(row=0,column=1, pady=5)
         self.empName.grid(row=1,column=0)
-        self.empNameEn.grid(row=1,column=1)
+        self.empNameEn.grid(row=1,column=1,pady=5)
+        self.empAge.grid(row=2,column=0)
+        self.empAgeEn.grid(row=2,column=1,pady=5)
+        self.empSta.grid(row=3,column=0)
+        self.empStaEn.grid(row=3,column=1,pady=5)
 
         bdF.grid(row=1)
 

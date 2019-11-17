@@ -25,14 +25,17 @@ class user():
         self.empID = Label(bdF, text="User ID: ")
         self.empEn = Entry(bdF)
 
-        self.empName = Label(bdF, text="User Name: ")
+        self.empName = Label(bdF, text="User FName: ")
         self.empNameEn = Entry(bdF)
 
-        self.empAge = Label(bdF, text="User Age: ")
+        self.empAge = Label(bdF, text="User LName: ")
         self.empAgeEn = Entry(bdF)
 
-        self.empSta = Label(bdF, text="User Status: ")
+        self.empSta = Label(bdF, text="User Phone: ")
         self.empStaEn = Entry(bdF)
+
+        self.empEm = Label(bdF, text="User Email: ")
+        self.empEmEn = Entry(bdF)
 
         self.empID.grid(row=0,column=0)
         self.empEn.grid(row=0,column=1, pady=5)
@@ -42,6 +45,9 @@ class user():
         self.empAgeEn.grid(row=2,column=1,pady=5)
         self.empSta.grid(row=3,column=0)
         self.empStaEn.grid(row=3,column=1,pady=5)
+        self.empEm.grid(row=4,column=0)
+        self.empEmEn.grid(row=4,column=1,pady=5)
+
 
         bdF.grid(row=1)
 
@@ -56,7 +62,7 @@ class user():
         foot.grid(row=2)
 
 
-        self.cwin.title('Query Roomer')
+        self.cwin.title('Query User')
         self.cwin.geometry('450x450')
 
 class roomer():
@@ -83,16 +89,16 @@ class roomer():
         self.empID = Label(bdF, text="Roomer ID: ")
         self.empEn = Entry(bdF)
 
-        self.empName = Label(bdF, text="Roomer Name: ")
+        self.empName = Label(bdF, text="Roomer FName: ")
         self.empNameEn = Entry(bdF)
 
-        self.empAge = Label(bdF, text="Roomer Age: ")
+        self.empAge = Label(bdF, text="Roomer LName: ")
         self.empAgeEn = Entry(bdF)
 
-        self.empSta = Label(bdF, text="Roomer Status: ")
+        self.empSta = Label(bdF, text="Roomer Phone: ")
         self.empStaEn = Entry(bdF)
 
-        self.empPl = Label(bdF, text="Roomer Room ID: ")
+        self.empPl = Label(bdF, text="Roomer Email: ")
         self.empPlEn = Entry(bdF)
 
         self.empID.grid(row=0,column=0)

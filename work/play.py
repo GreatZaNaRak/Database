@@ -23,45 +23,57 @@ class pIn():
 
         # body
 
-        bdF = Frame(self.cwin)
+        
+        bf1 = Frame(self.cwin,pady=5)
+        self.l1 = Label(bf1, text="           Ride Name: ")
+        self.e1 = Entry(bf1) 
 
-        self.pID = Label(bdF, text="Plays ID: ")
-        self.pEn = Entry(bdF)
+        self.l1.pack(side=LEFT)
+        self.e1.pack(side=RIGHT)
 
-        self.pName = Label(bdF, text="Plays Name: ")
-        self.pNameEn = Entry(bdF)
+        bf2 = Frame(self.cwin,pady=5)
+        self.l2 = Label(bf2, text="            Fac Name: ")
+        self.e2 = Entry(bf2)
 
-        self.pAge = Label(bdF, text="Plays Age: ")
-        self.pAgeEn = Entry(bdF)
+        self.l2.pack(side=LEFT)
+        self.e2.pack(side=RIGHT)
 
-        self.pSta = Label(bdF, text="Plays Status: ")
-        self.pStaEn = Entry(bdF)
+        bf3 = Frame(self.cwin,pady=5)
+        self.l3 = Label(bf3, text="     Time Available: ")
+        self.e3 = Entry(bf3) 
 
-        self.pPl = Label(bdF, text="Plays Plays: ")
-        self.pPlEn = Entry(bdF)
+        self.l3.pack(side=LEFT)
+        self.e3.pack(side=RIGHT)
 
-        self.pID.grid(row=0,column=0)
-        self.pEn.grid(row=0,column=1, pady=5)
-        self.pName.grid(row=1,column=0)
-        self.pNameEn.grid(row=1,column=1,pady=5)
-        self.pAge.grid(row=2,column=0)
-        self.pAgeEn.grid(row=2,column=1,pady=5)
-        self.pSta.grid(row=3,column=0)
-        self.pStaEn.grid(row=3,column=1,pady=5)
-        self.pPl.grid(row=4,column=0)
-        self.pPlEn.grid(row=4,column=1,pady=5)
+        bf4 = Frame(self.cwin,pady=5)
+        self.l4 = Label(bf4, text="               Capacity: ")
+        self.e4 = Entry(bf4)
 
-        bdF.grid(row=1)
+        self.l4.pack(side=LEFT)
+        self.e4.pack(side=RIGHT)
 
-        foot = Frame(self.cwin, pady=20)
+        bf5 = Frame(self.cwin,pady=5)
+        self.l5 = Label(bf5, text="Warrant Duration: ")
+        self.e5 = Entry(bf5)
 
-        self.but = Button(foot, text="INSERT", width=15)
-        self.exit = Button(foot, text="EXIT", width=15, command=self.cwin.destroy)
+        self.l5.pack(side=LEFT)
+        self.e5.pack(side=RIGHT)
 
-        self.but.pack(side=LEFT, padx=10)
-        self.exit.pack(side=RIGHT)
 
-        foot.grid(row=2)
+        bf6 = Frame(self.cwin,pady=5)
+        self.button_submit=Button(bf6, text ="INSERT", width=10)
+        self.button_exit=Button(bf6, text="EXIT", width=10, command=self.cwin.destroy)
+
+        self.button_submit.pack(side=LEFT,padx=10)
+        self.button_exit.pack(side=RIGHT)
+
+        
+        bf1.grid(row=2,column=0)
+        bf2.grid(row=3,column=0)
+        bf3.grid(row=4,column=0)
+        bf4.grid(row=5,column=0)
+        bf5.grid(row=6,column=0)
+        bf6.grid(row=7,column=0)
 
 
         self.cwin.title('Insert Plays')
@@ -136,47 +148,56 @@ class pQue():
 
         background_label.grid(row=0,column=0)
 
-        # body
+        
+        bf1 = Frame(self.cwin,pady=5)
+        self.l1 = Label(bf1, text="           Ride Name: ")
+        self.e1 = Entry(bf1) 
 
-        bdF = Frame(self.cwin)
+        self.l1.pack(side=LEFT)
+        self.e1.pack(side=RIGHT)
 
-        self.pID = Label(bdF, text="Plays ID: ")
-        self.pEn = Entry(bdF)
+        bf2 = Frame(self.cwin,pady=5)
+        self.l2 = Label(bf2, text="            Fac Name: ")
+        self.e2 = Entry(bf2)
 
-        self.pName = Label(bdF, text="Plays Name: ")
-        self.pNameEn = Entry(bdF)
+        self.l2.pack(side=LEFT)
+        self.e2.pack(side=RIGHT)
 
-        self.pAge = Label(bdF, text="Plays Age: ")
-        self.pAgeEn = Entry(bdF)
+        bf3 = Frame(self.cwin,pady=5)
+        self.l3 = Label(bf3, text="     Time Available: ")
+        self.e3 = Entry(bf3) 
 
-        self.pSta = Label(bdF, text="Plays Status: ")
-        self.pStaEn = Entry(bdF)
+        self.l3.pack(side=LEFT)
+        self.e3.pack(side=RIGHT)
 
-        self.pPl = Label(bdF, text="Plays Plays: ")
-        self.pPlEn = Entry(bdF)
+        bf4 = Frame(self.cwin,pady=5)
+        self.l4 = Label(bf4, text="               Capacity: ")
+        self.e4 = Entry(bf4)
 
-        self.pID.grid(row=0,column=0)
-        self.pEn.grid(row=0,column=1, pady=5)
-        self.pName.grid(row=1,column=0)
-        self.pNameEn.grid(row=1,column=1,pady=5)
-        self.pAge.grid(row=2,column=0)
-        self.pAgeEn.grid(row=2,column=1,pady=5)
-        self.pSta.grid(row=3,column=0)
-        self.pStaEn.grid(row=3,column=1,pady=5)
-        self.pPl.grid(row=4,column=0)
-        self.pPlEn.grid(row=4,column=1,pady=5)
+        self.l4.pack(side=LEFT)
+        self.e4.pack(side=RIGHT)
 
-        bdF.grid(row=1)
+        bf5 = Frame(self.cwin,pady=5)
+        self.l5 = Label(bf5, text="Warrant Duration: ")
+        self.e5 = Entry(bf5)
 
-        foot = Frame(self.cwin, pady=20)
+        self.l5.pack(side=LEFT)
+        self.e5.pack(side=RIGHT)
 
-        self.but = Button(foot, text="SEARCH", width=15)
-        self.exit = Button(foot, text="EXIT", width=15, command=self.cwin.destroy)
 
-        self.but.pack(side=LEFT, padx=10)
-        self.exit.pack(side=RIGHT)
+        bf6 = Frame(self.cwin,pady=5)
+        self.button_submit=Button(bf6, text ="SEARCH", width=10)
+        self.button_exit=Button(bf6, text="EXIT", width=10, command=self.cwin.destroy)
 
-        foot.grid(row=2)
+        self.button_submit.pack(side=LEFT,padx=10)
+        self.button_exit.pack(side=RIGHT)
+
+        bf1.grid(row=2,column=0)
+        bf2.grid(row=3,column=0)
+        bf3.grid(row=4,column=0)
+        bf4.grid(row=5,column=0)
+        bf5.grid(row=6,column=0)
+        bf6.grid(row=7,column=0)
 
 
         self.cwin.title('Query Plays')

@@ -68,6 +68,7 @@ class Win():
     def log(self):
         self.i += 1
         self.username = self.e1.get()
+        self.psw = self.e2.get()
         print(self.username)
         
         
@@ -77,6 +78,8 @@ class Win():
 
 
 a = Win()
+d = {'great':'pass'}
 if a.i != 0: 
-    if a.username.lower() == 'admin': Window()
-    else: UserWindow()
+    if a.username.lower() == 'admin' and a.psw.lower() == 'admin': Window()
+    else: 
+        if a.username.lower() in d and a.psw.lower() == d[a.username.lower()]: UserWindow()

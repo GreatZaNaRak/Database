@@ -11,7 +11,7 @@ class calender():
 
         self.b = tk.Button(root, text="OK", command=root.destroy, bg="grey")
 
-        self.L = Label(root, text="You have reserved a ticket !!!")
+        self.L = Label(root, text="You have reserved a ticket !!!\nYou can see Ticket No. below this popup \n and remember it!")
         self.L.pack(pady=10)
 
         self.aa = Label(root, text=str(time.asctime()))

@@ -90,7 +90,7 @@ class insertWin():
 
         
         C = Canvas(self.cwin, bg="blue", height=50, width=50)
-        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\Get_mail.png")
+        filename = PhotoImage(file = "images\\Get_mail.png")
        
         background_label = Label(self.cwin, image=filename)
         background_label.place(x=0, y=-100)
@@ -141,7 +141,7 @@ class deleteWin():
 
         
         C = Canvas(self.cwin, bg="blue", height=50, width=50)
-        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\bin.png")
+        filename = PhotoImage(file = "images\\bin.png")
        
         background_label = Label(self.cwin, image=filename)
         background_label.place(x=0, y=-100)
@@ -194,7 +194,7 @@ class updateWin():
 
         
         C = Canvas(self.cwin, bg="blue", height=50, width=50)
-        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\update.png")
+        filename = PhotoImage(file = "images\\update.png")
        
         background_label = Label(self.cwin, image=filename)
         background_label.place(x=0, y=-100)
@@ -209,7 +209,7 @@ class updateWin():
 
         bf1 = Frame(self.cwin, pady=5)
         self.tickPriceBut = Button(bf1, text="TICKET PRICE", width=15, command=self.upTic)
-        self.playPriceBut = Button(bf1, text="PLAYS PRICE", width=15, command=self.upPlay)
+        self.playPriceBut = Button(bf1, text="PRODUCT PRICE", width=15, command=self.upPlay)
 
         self.tickPriceBut.pack(side=LEFT, padx=10)
         self.playPriceBut.pack(side=RIGHT)
@@ -242,7 +242,7 @@ class queryWin():
 
         
         C = Canvas(self.cwin, bg="blue", height=50, width=50)
-        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\qu.png")
+        filename = PhotoImage(file = "images\\qu.png")
        
         background_label = Label(self.cwin, image=filename)
         background_label.place(x=0, y=-100)

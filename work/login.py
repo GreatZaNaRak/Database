@@ -78,8 +78,8 @@ class Win():
 
 
 a = Win()
-d = {'great':'pass'}
+d = {'g':'g'}
 if a.i != 0: 
-    if a.username.lower() == 'admin' and a.psw.lower() == 'admin': Window()
+    if a.username.lower() == 'a' and a.psw.lower() == 'a': Window()
     else: 
         if a.username.lower() in d and a.psw.lower() == d[a.username.lower()]: UserWindow()

@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
+from database import *
 
 class upTicket():
     def __init__(self):
@@ -10,7 +11,7 @@ class upTicket():
         topFrame = Frame(self.cwin, pady=30)
 
         C = Canvas(self.cwin, bg="blue", height=50, width=50)
-        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\ticket.png")
+        filename = PhotoImage(file = "images\\ticket.png")
        
         background_label = Label(self.cwin, image=filename)
         background_label.place(x=0, y=-100)
@@ -23,7 +24,7 @@ class upTicket():
 
         bdF = Frame(self.cwin)
 
-        self.empID = Label(bdF, text="Ticket ID: ")
+        self.empID = Label(bdF, text="Typename : ")
         self.empEn = Entry(bdF)
 
         self.empName = Label(bdF, text="New Price: ")
@@ -38,17 +39,30 @@ class upTicket():
 
         foot = Frame(self.cwin, pady=20)
 
-        self.but = Button(foot, text="UPDATE", width=15)
+        self.but = Button(foot, text="UPDATE", width=15,command=self.updateTicket)
         self.exit = Button(foot, text="EXIT", width=15, command=self.cwin.destroy)
+
+        moreFoot = Frame(self.cwin)
+        self.labet_status = Label(moreFoot,text="Fill typename and updated price")
 
         self.but.pack(side=LEFT, padx=10)
         self.exit.pack(side=RIGHT)
+        self.labet_status.pack()
 
         foot.grid(row=2)
+        moreFoot.grid(row=3)
 
 
         self.cwin.title('Update Ticket')
-        self.cwin.geometry('450x450')
+        self.cwin.geometry('450x500')
+
+    def updateTicket(self) :
+        self.cwin.title('Update Complete')
+        typename = self.empEn.get()
+        newPrice = self.empNameEn.get()
+        aTT = TickettypeDB(typename,newPrice)
+        retmsg = aTT.updatePrice(newPrice)
+        self.labet_status.config(text=retmsg[1])
 
 class upPlay():
     def __init__(self):
@@ -59,7 +73,7 @@ class upPlay():
         topFrame = Frame(self.cwin, pady=30)
 
         C = Canvas(self.cwin, bg="blue", height=50, width=50)
-        filename = PhotoImage(file = "C:\\Users\\USER\\Desktop\\USE\\Year3\\database\\work\\images\\p1.png")
+        filename = PhotoImage(file = "images\\p1.png")
        
         background_label = Label(self.cwin, image=filename)
         background_label.place(x=0, y=-100)
@@ -72,7 +86,7 @@ class upPlay():
 
         bdF = Frame(self.cwin)
 
-        self.empID = Label(bdF, text="Plays ID: ")
+        self.empID = Label(bdF, text="Product Name: ")
         self.empEn = Entry(bdF)
 
         self.empName = Label(bdF, text="New Price: ")
@@ -87,14 +101,29 @@ class upPlay():
 
         foot = Frame(self.cwin, pady=20)
 
-        self.but = Button(foot, text="UPDATE", width=15)
+        self.but = Button(foot, text="UPDATE", width=15,command=self.updateP)
         self.exit = Button(foot, text="EXIT", width=15, command=self.cwin.destroy)
+
+        moreFoot = Frame(self.cwin)
+
+        self.labet_status = Label(moreFoot,text="fill Product name and new price")
 
         self.but.pack(side=LEFT, padx=10)
         self.exit.pack(side=RIGHT)
+        self.labet_status.pack()
 
         foot.grid(row=2)
+        moreFoot.grid(row=3)
 
 
-        self.cwin.title('Update Plays')
-        self.cwin.geometry('450x450')
+        self.cwin.title('Update Product name')
+        self.cwin.geometry('450x600')
+
+    def updateP(self):
+
+        self.cwin.title("Update complete")
+        name = self.empEn.get()
+        price = self.empNameEn.get()
+        aProd = ProductAndStoreDB(name,price,"0")
+        retmsg = aProd.updateProductPrice()
+        self.labet_status.config(text=retmsg[1])
